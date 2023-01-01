@@ -1,2 +1,2 @@
 # portfolio
-vite, react, react-query, typescript
+vite, javascript, react, react-query, typescript
