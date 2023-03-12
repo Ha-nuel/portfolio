@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import LogoImage from '../../assets/images/Vring-logo.png';
+import LogoImage from '../../assets/images/logo.png';
 
 export default function Logo() {
   const navigate = useNavigate();
