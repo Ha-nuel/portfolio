@@ -1,7 +1,5 @@
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
-
-import GeneralContext from '../context/GeneralContext.js';
 
 import useSlide from '../hooks/useSlide.js';
 import useDivideSection from '../hooks/useDivideSection.js';
@@ -12,10 +10,7 @@ import ProfileCard from '../components/About/ProfileCard.js';
 import TitleImage from '../assets/images/about-images/undraw_computer.svg';
 import TitleWave from '../assets/images/about-images/wave.png';
 import TeamImage from '../assets/images/about-images/undraw-engineering_team.svg';
-import AboutForm from '../components/About/AboutForm.js';
 
-import FemaleImage from '../assets/images/user-icons/undraw_female_avatar.svg';
-import MaleImage from '../assets/images/user-icons/undraw_male_avatar.svg';
 import AboutImage from '../assets/images/user-icons/undraw_programmer_re_owql.svg';
 import ProfileStacks from '../components/About/ProfileStacks.js';
 import ProjectCard from '../components/About/ProjectCard.js';
@@ -46,8 +41,6 @@ const projects = [
 ];
 
 export default function About() {
-  const generalContext = useContext(GeneralContext);
-
   const { count, setCount, startInterval, leftBtnHandler, rightBtnHandler } =
     useSlide(false, 1, projects.length);
   const {
@@ -77,7 +70,6 @@ export default function About() {
 
   return (
     <>
-      {currentSection === 5 && generalContext.showAboutForm && <AboutForm />}
       <Container>
         <SubNav focusOn={currentSection !== 1}>
           <NavBtn
