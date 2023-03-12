@@ -77,9 +77,10 @@ export default function About() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     startInterval();
 
-    window.scrollTo(0, 0);
     window.addEventListener('scroll', scrollEventHandler);
 
     return () => window.removeEventListener('scroll', scrollEventHandler);
