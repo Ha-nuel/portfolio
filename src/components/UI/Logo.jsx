@@ -1,11 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import LogoImage from '../../assets/images/logo.png';
 
 export default function Logo() {
-  const navigate = useNavigate();
-
   return (
     <LogoStyle className='logo' src={LogoImage} onClick={() => navigate('/')} />
   );
