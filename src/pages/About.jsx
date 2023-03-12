@@ -121,7 +121,7 @@ export default function About() {
             onClick={() =>
               window.scrollTo(
                 0,
-                sections.fifthSection - innerHeight / subSection
+                sections.seventhSection - innerHeight / subSection
               )
             }
             active={currentSection === 7}
