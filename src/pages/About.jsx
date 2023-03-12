@@ -77,8 +77,6 @@ export default function About() {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     startInterval();
 
     window.addEventListener('scroll', scrollEventHandler);
