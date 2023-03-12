@@ -4,16 +4,16 @@ import styled, { keyframes, css } from 'styled-components';
 import useSlide from '../hooks/useSlide.js';
 import useDivideSection from '../hooks/useDivideSection.js';
 
-import Slide from '../components/UI/Slide.js';
-import ProfileCard from '../components/About/ProfileCard.js';
+import Slide from '../components/UI/Slide.jsx';
+import ProfileCard from '../components/About/ProfileCard.jsx';
 
 import TitleImage from '../assets/images/about-images/undraw_computer.svg';
 import TitleWave from '../assets/images/about-images/wave.png';
 import TeamImage from '../assets/images/about-images/undraw-engineering_team.svg';
 
 import AboutImage from '../assets/images/user-icons/undraw_programmer_re_owql.svg';
-import ProfileStacks from '../components/About/ProfileStacks.js';
-import ProjectCard from '../components/About/ProjectCard.js';
+import ProfileStacks from '../components/About/ProfileStacks.jsx';
+import ProjectCard from '../components/About/ProjectCard.jsx';
 
 const teamMembers = [
   {
