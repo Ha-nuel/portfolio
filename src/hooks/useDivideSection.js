@@ -71,8 +71,6 @@ export default function useDivideSection(divide = 2) {
       return;
     }
 
-    console.log(currentSection);
-
     setCurrentSection(1);
   };
 
