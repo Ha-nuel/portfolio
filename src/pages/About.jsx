@@ -17,32 +17,49 @@ import ProjectCard from '../components/About/ProjectCard.jsx';
 
 const teamMembers = [
   {
-    name: '이하늘',
-    gender: 'male',
-    pos: '프론트엔드',
+    description: '여기까지 봐주셔서 감사합니다.',
+  },
+  {
+    description: '모자란 부분이 있다면 바로 제게 알려주시면 감사하겠습니다.',
+  },
+  {
+    description: '사실 이 부분은 같이 했던 팀원의 한마디를 적고 싶었지만...',
+  },
+  {
     description: '부족한 게 많지만 열심히 하겠습니다!',
-    stacks: ['html', 'css', 'js', 'react'],
   },
 ];
 
 const projects = [
   {
     name: '포트폴리오 공유 사이트',
-    description: '생략',
+    description:
+      '팀 프로젝트를 위한 감 잡기로 제작한 사이트입니다. 다른 유저의 포트폴리오를 확인할 수 있고, 사용자 본인의 포트폴리오도 추가할 수 있습니다.',
   },
   {
     name: '재활용 쇼핑몰 사이트',
-    description: '생략',
+    description:
+      '자신이 더 이상 입지 않는 그러나 폐기되기에는 아까운 옷을 등록하여 나눔이 가능하도록 한 웹 서비스입니다. 새상품을 소비할 때의 효용 (다양한 상품 즐기기)을 유지하면서 비용을 들이지 않고 친환경적인 행동적 대안으로 `옷 나눔` 서비스를 제공하기 위한 목적으로 기획하였습니다.',
   },
   {
     name: '일기 공유 사이트',
-    description: '생략',
+    description:
+      '사회가 고도로 발전함에 따라 서로 과시하려고만 하고 정작 본인에 감정을 돌아보는 일은 거의 없습니다. 그래서 저희 익명으로 일기라는 매체로 감정을 터놓을 수 있고, 공유할 수 있는 익명 SNS 서비스 마음일기를 기획하게 되었습니다.',
+    detail:
+      '프론트엔드 \n Typescript \n React \n Recoil \n React-query \n Styled-components',
+  },
+  {
+    name: '커뮤니티 사이트',
+    description:
+      '지금까지 배웠던 것들을 총망라한 프로젝트입니다. recoil, react-query, MUI 등을 사용했고, CRUD, 로그인 및 회원가입, JWT 토큰, 쿠키 등의 기능이 있습니다',
+    detail:
+      '프론트엔드 \n Typescript \n React \n Recoil \n React-query \n Styled-components',
   },
 ];
 
 export default function About() {
   const { count, setCount, startInterval, leftBtnHandler, rightBtnHandler } =
-    useSlide(false, 1, projects.length);
+    useSlide(4000, 1, teamMembers.length);
   const {
     currentSection,
     scrollEventHandler,
@@ -96,7 +113,7 @@ export default function About() {
                 sections.secondSection - innerHeight / subSection
               )
             }
-            active={currentSection === 3}
+            active={currentSection > 2 && currentSection !== 7}
           >
             프로젝트
           </NavBtn>
@@ -104,10 +121,10 @@ export default function About() {
             onClick={() =>
               window.scrollTo(
                 0,
-                sections.fourthSection - innerHeight / subSection
+                sections.fifthSection - innerHeight / subSection
               )
             }
-            active={currentSection === 4}
+            active={currentSection === 7}
           >
             한줄 소감
           </NavBtn>
@@ -224,23 +241,229 @@ export default function About() {
           focusOut={currentSection !== 3}
         >
           <TeamSubSection>
-            <Slide {...slideProps}>
-              <ProjectCard project={projects[count]} />
-            </Slide>
+            <SlideCard>
+              <ProjectPicture focusOn={currentSection === 3}>
+                사진
+              </ProjectPicture>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  width: '100%',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  textAlign: 'left',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    width: '80%',
+                    alignItems: 'flex-start',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ProfileName>{projects[0].name}</ProfileName>
+                  <ProfileDescription>
+                    {projects[0].description}
+                  </ProfileDescription>
+                  <StartBtn>깃헙 확인하기</StartBtn>
+                </div>
+              </div>
+            </SlideCard>
           </TeamSubSection>
         </TestSection>
-        <TeamSection
+        <TestSection
           focusOn={currentSection === 4}
           focusOut={currentSection !== 4}
         >
           <TeamSubSection>
-            <ProfileCard teamMember={teamMembers[0]} />
+            <SlideCard>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  width: '100%',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  textAlign: 'left',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    width: '80%',
+                    alignItems: 'flex-start',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ProfileName>{projects[1].name}</ProfileName>
+                  <ProfileDescription>
+                    {projects[1].description}
+                  </ProfileDescription>
+                  <StartBtn>깃헙 확인하기</StartBtn>
+                </div>
+              </div>
+              <ProjectRightPicture focusOn={currentSection === 4}>
+                사진
+              </ProjectRightPicture>
+            </SlideCard>
+          </TeamSubSection>
+        </TestSection>
+        <TestSection
+          focusOn={currentSection === 5}
+          focusOut={currentSection !== 5}
+        >
+          <TeamSubSection>
+            <SlideCard>
+              <ProjectPicture focusOn={currentSection === 5}>
+                사진
+              </ProjectPicture>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  width: '100%',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  textAlign: 'left',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    width: '80%',
+                    alignItems: 'flex-start',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ProfileName>{projects[2].name}</ProfileName>
+                  <ProfileDescription>
+                    {projects[2].description}
+                  </ProfileDescription>
+                  <StartBtn>깃헙 확인하기</StartBtn>
+                </div>
+              </div>
+            </SlideCard>
+          </TeamSubSection>
+        </TestSection>
+        <TestSection
+          focusOn={currentSection === 6}
+          focusOut={currentSection !== 6}
+        >
+          <TeamSubSection>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+                width: '80%',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <ProjectName>{projects[3].name}</ProjectName>
+              <LastProjectPicture>사진</LastProjectPicture>
+              <ProjectDescription>{projects[3].description}</ProjectDescription>
+              <StartBtn>보러가기</StartBtn>
+            </div>
+          </TeamSubSection>
+        </TestSection>
+        <TeamSection
+          focusOn={currentSection === 7}
+          focusOut={currentSection !== 7}
+        >
+          <TeamSubSection>
+            <Slide {...slideProps}>
+              <ProfileCard teamMember={teamMembers[count]} />
+            </Slide>
           </TeamSubSection>
         </TeamSection>
       </Container>
     </>
   );
 }
+
+const StartBtn = styled.button`
+  cursor: pointer;
+  padding: 4px 24px;
+  font-size: 1.25rem;
+  font-family: 'elice-bold';
+  color: white;
+  background-color: #6c63ff;
+  border: #6c63ff 1px solid;
+  border-radius: 20px;
+`;
+
+const SlideCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+`;
+
+const ProfileName = styled.div`
+  font-size: 2rem;
+  font-family: elice-bold;
+  width: 100%;
+`;
+
+const ProjectName = styled.div`
+  font-size: 2rem;
+  font-family: elice-bold;
+  width: 50%;
+  text-align: center;
+`;
+
+const ProjectDescription = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 50%;
+`;
+
+const ProfileDescription = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+`;
+
+const ProjectPicture = styled.div`
+  width: 100%;
+
+  ${({ focusOn }) =>
+    focusOn &&
+    css`
+      animation: ${FadeInLeft} 1s;
+    `}
+`;
+
+const ProjectRightPicture = styled.div`
+  width: 100%;
+
+  ${({ focusOn }) =>
+    focusOn &&
+    css`
+      animation: ${FadeInRight} 1s;
+    `}
+`;
+
+const LastProjectPicture = styled.div`
+  margin-top: 2rem;
+  width: 50%;
+  text-align: center;
+`;
 
 const FadeOut = keyframes`
   0% {
@@ -307,7 +530,7 @@ const ProfileImage = styled.img`
 `;
 
 const Container = styled.div`
-  height: 370vh;
+  height: 670vh;
   display: flex;
   flex-direction: column;
 `;

@@ -13,6 +13,9 @@ export default function useDivideSection(divide = 2) {
   const secondSection = innerHeight * 2 + innerHeight / subSection;
   const thirdSection = innerHeight * 3 + innerHeight / subSection;
   const fourthSection = innerHeight * 4 + innerHeight / subSection;
+  const fifthSection = innerHeight * 5 + innerHeight / subSection;
+  const sixthSection = innerHeight * 6 + innerHeight / subSection;
+  const seventhSection = innerHeight * 7 + innerHeight / subSection;
 
   const scrollEventHandler = () => {
     const { scrollY } = window;
@@ -45,6 +48,31 @@ export default function useDivideSection(divide = 2) {
       return;
     }
 
+    if (
+      fourthSection < currentWindowHeight &&
+      fifthSection > currentWindowHeight &&
+      currentSection !== 5
+    ) {
+      setCurrentSection(5);
+      return;
+    }
+
+    if (
+      fifthSection < currentWindowHeight &&
+      sixthSection > currentWindowHeight &&
+      currentSection !== 6
+    ) {
+      setCurrentSection(6);
+      return;
+    }
+
+    if (sixthSection < currentWindowHeight && currentSection !== 7) {
+      setCurrentSection(7);
+      return;
+    }
+
+    console.log(currentSection);
+
     setCurrentSection(1);
   };
 
@@ -53,6 +81,9 @@ export default function useDivideSection(divide = 2) {
     secondSection,
     thirdSection,
     fourthSection,
+    fifthSection,
+    sixthSection,
+    seventhSection,
   };
 
   return {

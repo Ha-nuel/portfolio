@@ -36,9 +36,7 @@ const SlideStyle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: gray 1rem solid;
   border-radius: 20px;
-  outline: lightgray 1rem solid;
 `;
 
 const SlideButtons = styled.div`
@@ -54,10 +52,10 @@ const SlideNumber = styled.button`
   border: none;
   height: 1rem;
   width: 1rem;
-  border: gray 1px solid;
+  border: #6c63ff 1px solid;
   border-radius: 50%;
   background-color: ${({ count, index }) =>
-    count === index ? 'gray' : 'transparent'};
+    count === index ? '#6C63FF' : 'transparent'};
 `;
 
 const SlideButton = styled.button`

@@ -4,19 +4,36 @@ export default function ProjectCard({ project }) {
   return (
     <>
       <SlideCard>
-        <ProfileName>{project.name}</ProfileName>
-        <BreakLineStyle />
-        <ProfileDescription>{project.description}</ProfileDescription>
+        <ProjectPicture>사진</ProjectPicture>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            width: '50%',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            textAlign: 'left',
+          }}
+        >
+          <ProfileName>{project.name}</ProfileName>
+          <ProfileDescription>{project.description}</ProfileDescription>
+          <StartBtn>보러가기</StartBtn>
+        </div>
       </SlideCard>
     </>
   );
 }
 
-const BreakLineStyle = styled.div`
-  width: 0.1rem;
-  height: 50%;
-  background-color: lightgray;
-  margin-top: 1rem;
+const StartBtn = styled.button`
+  cursor: pointer;
+  padding: 4px 24px;
+  font-size: 1.25rem;
+  font-family: 'elice-bold';
+  color: white;
+  background-color: #6c63ff;
+  border: #6c63ff 1px solid;
+  border-radius: 20px;
 `;
 
 const SlideCard = styled.div`
@@ -29,25 +46,18 @@ const SlideCard = styled.div`
   width: 100%;
 `;
 
-const ProfileImage = styled.img`
-  width: 5rem;
-  height: 5rem;
-  border: gray 0.25rem solid;
-  border-radius: 50%;
-`;
-
 const ProfileName = styled.div`
   font-size: 2rem;
   font-family: elice-bold;
   width: 100%;
 `;
 
-const ProfilePos = styled.span`
-  font-size: 1.25rem;
-  font-family: elice-bold;
-`;
-
 const ProfileDescription = styled.div`
   margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 50%;
+`;
+
+const ProjectPicture = styled.div`
   width: 100%;
 `;

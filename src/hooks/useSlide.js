@@ -16,7 +16,7 @@ export default function useSlide(TIME = 1000, startNum = 1, endNum = 2) {
   };
 
   const startInterval = useCallback(() => {
-    if (intervalRef.current !== null || !TIME) {
+    if (intervalRef.current !== null) {
       return;
     }
 

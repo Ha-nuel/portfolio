@@ -8,9 +8,9 @@ export default function ProfileCard({ teamMember }) {
   return (
     <>
       <SlideCard>
-        <ProfileImage src={Gender[teamMember.gender]} />
-        <ProfileName>{teamMember.name}</ProfileName>
-        <ProfilePos>{teamMember.pos}</ProfilePos>
+        <ProfileImage src={Gender['male']} />
+        <ProfileName>이하늘</ProfileName>
+        <ProfilePos>프론트엔드</ProfilePos>
         <ProfileDescription>{teamMember.description}</ProfileDescription>
         <BreakLine />
       </SlideCard>
